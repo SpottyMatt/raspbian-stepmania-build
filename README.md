@@ -5,6 +5,10 @@ StepMania Raspberry Pi Build
 
 Scripts & instructions to build [StepMania](https://github.com/stepmania/stepmania) from source on a Rasperry Pi running Raspian.
 
+There is a lot more required to make StepMania actually _playable_ on a Raspberry Pi.
+If all you want to do is play StepMania, check out
+[`raspbian-3b-stepmania-arcade`](https://github.com/SpottyMatt/raspbian-3b-stepmania-arcade) instead.
+
 1. [Prerequisites](#prerequisites)
 2. [Quick Start](#quick-start)
 3. [Notes](#notes)
