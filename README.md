@@ -1,4 +1,4 @@
-StepMania Raspberry Pi Build
+Compile StepMania on Raspberry Pi
 =========================
 
 ![StepMania Raspberry Pi Build](stepmania-build.png)
