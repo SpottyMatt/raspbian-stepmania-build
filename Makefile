@@ -19,37 +19,9 @@ system-prep:
 build-prep:
 	sudo sed -i 's/#deb-src/deb-src/g' /etc/apt/sources.list
 	sudo apt-get update
-	sudo apt-get install -y \
-		binutils-dev \
-		build-essential \
-		cmake \
-		ffmpeg \
-		libasound-dev \
-		libbz2-dev \
-		libc6-dev \
-		libcairo2-dev \
-		libgdk-pixbuf2.0-dev \
-		libglew1.5-dev \
-		libglib2.0-dev \
-		libglu1-mesa-dev \
-		libgtk2.0-dev \
-		libjack0 \
-		libjack-dev \
-		libjpeg-dev \
-		libmad0-dev \
-		libogg-dev \
-		libpango1.0-dev \
-		libpng-dev \
-		libpulse-dev \
-		libudev-dev \
-		libva-dev \
-		libvorbis-dev \
-		libxrandr-dev \
-		libxtst-dev \
-		mesa-common-dev \
-		mesa-utils \
-		yasm \
-		zlib1g-dev
+	. /etc/os-release && \
+		sudo apt-get install -y \
+		$$(echo $$(cat ./stepmania-build/deps/$${VERSION_CODENAME-stretch}.list))
 	sudo apt-get autoremove -y
 	sudo mkdir -p /usr/local/stepmania-5.1
 	sudo chmod a+rw /usr/local/stepmania-5.1
