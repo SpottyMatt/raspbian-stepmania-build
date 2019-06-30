@@ -1,5 +1,7 @@
-StepMania Rasperry Pi Build
+StepMania Raspberry Pi Build
 =========================
+
+![StepMania Raspberry Pi Build](stepmania-build.png)
 
 Scripts & instructions to build [StepMania](https://github.com/stepmania/stepmania) from source on a Rasperry Pi running Raspian.
 
