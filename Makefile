@@ -1,3 +1,5 @@
+DISTRO=$(shell dpkg --status tzdata|grep Provides|cut -f2 -d'-')
+
 .PHONY: all
 all:
 	$(MAKE) system-prep
@@ -16,16 +18,17 @@ system-prep:
 	$(MAKE) build-prep
 
 .PHONY: build-prep
-build-prep:
+build-prep: ./stepmania-build/deps/$(DISTRO).list
 	sudo sed -i 's/#deb-src/deb-src/g' /etc/apt/sources.list
 	sudo apt-get update
-	. /etc/os-release && \
-		sudo apt-get install -y \
-		$$(echo $$(cat ./stepmania-build/deps/$${VERSION_CODENAME-stretch}.list))
+	sudo apt-get install -y \
+		$$(echo $$(cat ./stepmania-build/deps/$(DISTRO).list))
 	sudo apt-get autoremove -y
 	sudo mkdir -p /usr/local/stepmania-5.1
 	sudo chmod a+rw /usr/local/stepmania-5.1
 
+./stepmania-build/deps/*.list:
+	[ -e $(@) ]
 
 .PHONY: stepmania-prep
 .ONESHELL:
@@ -35,7 +38,7 @@ stepmania-prep:
 	cd stepmania
 	git submodule init
 	git submodule update
-	git apply ../stepmania-build/raspi-3b-arm.patch && git commit --author="raspian-3b-stepmania-arcade <SpottyMatt@gmail.com>" -a -m "Patched to enable building on ARM processors with -DARM_CPU=XXX -DARM_FPU=XXX"
+	git apply ../stepmania-build/raspi-3b-arm.patch && git commit --author="raspbian-stepmania-build <SpottyMatt@gmail.com>" -a -m "Patched to enable building on ARM processors with -DARM_CPU=XXX -DARM_FPU=XXX"
 	cmake -G "Unix Makefiles" \
 	        -DWITH_CRASH_HANDLER=0 \
 	        -DWITH_SSE2=0 \
