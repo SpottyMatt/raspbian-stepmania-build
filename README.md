@@ -44,7 +44,7 @@ Notes
 Building for Other Raspberry Pi Models
 -------------------------
 
-If you look at [`raspi-3b-arm.patch`](stepmania-build/sm-arm.patch), you'll see there are two variables that really matter for building StepMania:
+If you look at [`sm-arm.patch`](stepmania-build/sm-arm.patch), you'll see there are two variables that really matter for building StepMania:
 
 1. `ARM_CPU`
 2. `ARM_FPU`
