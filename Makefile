@@ -15,6 +15,9 @@ ifeq ($(wildcard ./rpi-hw-info/rpi-hw-info.py),)
 	git submodule update rpi-hw-info
 	@ if ! [ -e ./rpi-hw-info/rpi-hw-info.py ]; then echo "Couldn't retrieve the RPi HW Info Detector's git submodule. Figure out why or run 'make RPI_MODEL=<your_model>'"; exit 1; fi
 	$(MAKE) $@
+
+default:
+	$(MAKE) all
 else
 all:
 	$(MAKE) system-prep
