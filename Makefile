@@ -47,8 +47,8 @@ build-prep: ./stepmania-build/deps/$(DISTRO).list
 
 .PHONY: stepmania-prep
 .ONESHELL:
-stepmania-prep: ARM_CPU=$(shell ./rpi-hw-info/rpi-hw-info.py | awk -F ':' '{print $$5}')
-stepmania-prep: ARM_FPU=$(shell ./rpi-hw-info/rpi-hw-info.py | awk -F ':' '{print $$6}')
+stepmania-prep: ARM_CPU=$(shell ./rpi-hw-info/rpi-hw-info.py | awk -F ':' '{print $$3}')
+stepmania-prep: ARM_FPU=$(shell ./rpi-hw-info/rpi-hw-info.py | awk -F ':' '{print $$4}')
 stepmania-prep:
 	git submodule init
 	git submodule update
