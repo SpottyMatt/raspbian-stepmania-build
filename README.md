@@ -56,25 +56,18 @@ Who knows, they might work! The regular 3B was just powerful enough to run StepM
 
 Edit your `Makefile` and give it a try!
 
+Or, just run
+
+	make ARM_CPU=... ARM_FPU=...
+
 Supporting Other Raspberry Pi Models
 -------------------------
 
-If you manage to compile on some other Raspberry Pi model and want to extend this repository's support so that it just works for that new model, you'll need to expand the `rpi_models` list in [`rpi-hw-info.py`](stepmania-build/rpi-hw-info.py).
+This repository uses the [SpottyMatt/rpi-hw-info](https://github.com/SpottyMatt/rpi-hw-info) repository to decode Raspberry Pi hardware information and figure out the correct compiler flags.
 
-```python
-rpi_models = [
-        RPIModel( "3B", "a02082", "1.0", "20161", "cortex-a53", "neon-fp-armv8" ),
-        RPIModel( "3B", "a22082", "1.1", "20161", "cortex-a53", "neon-fp-armv8" ),
-        RPIModel( "3B", "a32082", "1.2", "20164", "cortex-a53", "neon-fp-armv8" ),
-        RPIModel( "3B+", "a020d3", "1.3", "20181", "cortex-a53", "neon-fp-armv8" ),
-        RPIModel( "4B", "a03111", "1.1", "20192", "cortex-a72", "neon-fp-armv8" ),
-        RPIModel( "4B", "b03111", "1.1", "20192", "cortex-a72", "neon-fp-armv8" ),
-        RPIModel( "4B", "c03111", "1.1", "20192", "cortex-a72", "neon-fp-armv8" )
-]
-```
+If you manage to get this to compile on a new Raspberry Pi model, make sure that repository is capable of correctly-detecting the new Pi, and reports the correct CPU and FPU compile targets.
 
-The first four values for Raspberry Pi models can be found on this page of the Embedded Linux Wiki: [RPi Hardware History](https://elinux.org/RPi_HardwareHistory).
-For the last two, you'll need to look up the hardware specifications of whichever Raspberry Pi you're trying to use.
+Then, update the `rpi-hw-info` submodule in this repo and you're done! This repo now supports compiling for the new Raspberry Pi hardware.
 
 StepMania Source
 -------------------------
