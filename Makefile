@@ -10,16 +10,22 @@ endif
 .PHONY: all
 
 ifeq ($(wildcard ./rpi-hw-info/rpi-hw-info.py),)
-all:
+all: submodules
+	$(MAKE) all
+
+submodules:
 	git submodule init rpi-hw-info
 	git submodule update rpi-hw-info
 	@ if ! [ -e ./rpi-hw-info/rpi-hw-info.py ]; then echo "Couldn't retrieve the RPi HW Info Detector's git submodule. Figure out why or run 'make RPI_MODEL=<your_model>'"; exit 1; fi
-	$(MAKE) $@
 
-%: all
+%: submodules
 	$(MAKE) $@
 
 else
+
+say-hi:
+	echo "hi"
+
 all:
 	$(MAKE) system-prep
 	$(MAKE) stepmania-prep
