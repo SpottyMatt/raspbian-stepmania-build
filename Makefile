@@ -23,9 +23,6 @@ submodules:
 
 else
 
-say-hi:
-	echo "hi"
-
 all:
 	$(MAKE) system-prep
 	$(MAKE) stepmania-prep
