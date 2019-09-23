@@ -11,8 +11,8 @@ libglew1.5-dev
 libglib2.0-dev
 libglu1-mesa-dev
 libgtk2.0-dev
-libjack0
-libjack-dev
+libjack-jackd2-0
+libjack-jackd2-dev
 libjpeg-dev
 libmad0-dev
 libogg-dev
