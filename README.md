@@ -36,7 +36,7 @@ Quick Start
 5. Done!
 
 **Note:** You've just _built_ the Stepmania binary but there's a lot more required to play it well on a Raspberry Pi.
-For that, check out [`raspian-stepmania-arcade`](https://github.com/SpottyMatt/raspbian-stepmania-arcade).
+For that, check out [`raspbian-stepmania-arcade`](https://github.com/SpottyMatt/raspbian-stepmania-arcade).
 
 Notes
 =========================
